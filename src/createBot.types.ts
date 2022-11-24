@@ -11,6 +11,7 @@ export interface Message {
   id: string;
   timestamp: string;
   type: PubSubEvent;
+  phoneNumberId: string;
   data: FreeFormObject; // TODO: properly define interfaces for each type
 }
 

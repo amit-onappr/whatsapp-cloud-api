@@ -116,6 +116,7 @@ export const startExpressServer = (
     }
 
     const name = req.body.entry[0].changes[0].value.contacts?.[0]?.profile?.name ?? undefined;
+    const phoneNumberId = req.body.entry[0].changes[0].value.metadata.phone_number_id ?? undefined;
 
     if (event && data) {
       const payload: Message = {
@@ -125,6 +126,7 @@ export const startExpressServer = (
         timestamp,
         type: event,
         data,
+        phoneNumberId,
       };
 
       ['message', event].forEach((e) => PubSub.publish(e, payload));
