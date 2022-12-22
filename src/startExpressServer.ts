@@ -79,7 +79,6 @@ export const startExpressServer = (
 
     let event: PubSubEvent | undefined;
     let data: FreeFormObject | undefined;
-
     switch (type) {
       case 'text':
         event = PubSubEvents.text;
@@ -93,6 +92,7 @@ export const startExpressServer = (
       case 'sticker':
       case 'location':
       case 'contacts':
+      case 'button':
         event = PubSubEvents[type as PubSubEvent];
         data = rest[type];
         break;
